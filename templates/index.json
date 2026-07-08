@@ -1,12 +1,23 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
+        "image": "shopify://shop_images/Gemini_Generated_Image_ybt6y2ybt6y2ybt6.png",
         "kicker": "Kristo Eaglet",
         "title": "Wear what you believe.",
         "text": "Faith-inspired apparel with a message of identity, hope and elevation.",
-        "button_label": "Shop the collection"
+        "button_label": "Shop the collection",
+        "button_link": ""
       }
     },
     "featured": {
@@ -14,20 +25,34 @@
       "settings": {
         "kicker": "The collection",
         "title": "Designed with purpose",
+        "collection": "",
         "limit": 8
       }
     },
     "story": {
       "type": "image-with-text",
       "settings": {
+        "image": "shopify://shop_images/Gemini_Generated_Image_fa9stafa9stafa9s.png",
         "kicker": "Our story",
-        "quote": "I am the child of God."
+        "quote": "I am the child of God.",
+        "text": "<p>Kristo Eaglet was born from a simple conviction: what you wear can carry what you believe. Each design is a declaration — of identity, of hope, of elevation.</p>",
+        "button_label": "",
+        "button_link": ""
       }
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "kicker": "Join the family",
+        "title": "New drops, first.",
+        "text": "Be the first to know about new designs and exclusive releases."
+      }
     }
   },
-  "order": ["hero", "featured", "story", "newsletter"]
+  "order": [
+    "hero",
+    "featured",
+    "story",
+    "newsletter"
+  ]
 }
