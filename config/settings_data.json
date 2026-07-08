@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "color_background": "#FBF7F0",
@@ -7,6 +16,26 @@
     "heading_style": "serif",
     "social_instagram": "",
     "social_tiktok": "",
-    "social_youtube": ""
+    "social_youtube": "",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/3__1_-removebg-preview.png",
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "brand_text": "Wear what you believe. Kristo Eaglet is a faith-inspired apparel brand — every piece carries a message of identity, hope and elevation.",
+          "menu_title": "Shop",
+          "menu": "footer",
+          "social_title": "Follow the journey",
+          "bottom_text": "All rights reserved."
+        }
+      }
+    },
+    "content_for_index": []
   }
 }
