@@ -1,0 +1,52 @@
+<section class="section">
+  <div class="page-width newsletter">
+    <p class="section__kicker">{{ section.settings.kicker }}</p>
+    <h2>{{ section.settings.title }}</h2>
+    <p>{{ section.settings.text }}</p>
+
+    {% form 'customer' %}
+      {%- if form.posted_successfully? -%}
+        <p class="newsletter__success">{{ 'general.newsletter.success' | t }}</p>
+      {%- else -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input
+          type="email"
+          name="contact[email]"
+          placeholder="{{ 'general.newsletter.label' | t }}"
+          required
+          autocomplete="email"
+        >
+        <button type="submit">{{ 'general.newsletter.button' | t }}</button>
+      {%- endif -%}
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Join the family"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "New drops, first."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Be the first to know about new designs and exclusive releases."
+    }
+  ],
+  "presets": [
+    { "name": "Newsletter" }
+  ]
+}
+{% endschema %}

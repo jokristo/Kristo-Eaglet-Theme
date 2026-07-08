@@ -1,0 +1,59 @@
+{
+  "general": {
+    "search": {
+      "search": "Search",
+      "placeholder": "Search our store",
+      "no_results": "No results found for \"{{ terms }}\"",
+      "results_for": "Results for \"{{ terms }}\""
+    },
+    "404": {
+      "title": "Page not found",
+      "subtext": "The page you were looking for does not exist.",
+      "link": "Continue shopping"
+    },
+    "newsletter": {
+      "label": "Email",
+      "success": "Thank you for joining the family.",
+      "button": "Join"
+    },
+    "cart": {
+      "title": "Your cart",
+      "empty": "Your cart is empty",
+      "continue": "Continue shopping",
+      "checkout": "Checkout",
+      "subtotal": "Subtotal",
+      "update": "Update cart",
+      "remove": "Remove",
+      "quantity": "Quantity",
+      "taxes_note": "Taxes and shipping calculated at checkout"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "added": "Added ✓",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "price": "Price",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "quantity": "Quantity",
+      "view_details": "View details"
+    }
+  },
+  "collections": {
+    "general": {
+      "view_all": "View all",
+      "no_products": "No products found in this collection",
+      "all_collections": "Collections"
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "Cart"
+    },
+    "navigation": {
+      "menu": "Menu"
+    }
+  }
+}

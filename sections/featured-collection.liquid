@@ -1,0 +1,69 @@
+<section class="section">
+  <div class="page-width">
+    <div class="section__header">
+      {%- if section.settings.kicker != blank -%}
+        <p class="section__kicker">{{ section.settings.kicker }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="product-grid">
+      {%- if section.settings.collection != blank -%}
+        {%- for product in section.settings.collection.products limit: section.settings.limit -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <div class="product-card">
+            <div class="product-card__media"></div>
+            <p class="product-card__title">Example product</p>
+            <p class="product-card__price">$25</p>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.collection != blank -%}
+      <div style="text-align:center; margin-top:3rem;">
+        <a href="{{ section.settings.collection.url }}" class="btn btn--outline">{{ 'collections.general.view_all' | t }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "The collection"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Designed with purpose"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Number of products",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    }
+  ],
+  "presets": [
+    { "name": "Featured collection" }
+  ]
+}
+{% endschema %}

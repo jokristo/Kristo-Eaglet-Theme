@@ -1,0 +1,25 @@
+<div class="page-width" style="padding-top:4rem; padding-bottom:4rem;">
+  <div class="collection-header">
+    <h1>{{ 'collections.general.all_collections' | t }}</h1>
+  </div>
+
+  <div class="product-grid">
+    {%- for collection in collections -%}
+      <a href="{{ collection.url }}" class="product-card">
+        <div class="product-card__media">
+          {%- if collection.featured_image != blank -%}
+            <img src="{{ collection.featured_image | image_url: width: 600 }}" alt="{{ collection.title | escape }}" loading="lazy">
+          {%- endif -%}
+        </div>
+        <p class="product-card__title">{{ collection.title }}</p>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,72 @@
+<footer class="site-footer">
+  <div class="page-width">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <div class="site-footer__logo">{{ shop.name }}</div>
+        <p>{{ section.settings.brand_text }}</p>
+      </div>
+
+      <div>
+        <h4>{{ section.settings.menu_title }}</h4>
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      </div>
+
+      <div>
+        <h4>{{ section.settings.social_title }}</h4>
+        {%- if settings.social_instagram != blank -%}
+          <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Instagram</a>
+        {%- endif -%}
+        {%- if settings.social_tiktok != blank -%}
+          <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">TikTok</a>
+        {%- endif -%}
+        {%- if settings.social_youtube != blank -%}
+          <a href="{{ settings.social_youtube }}" target="_blank" rel="noopener">YouTube</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ section.settings.bottom_text }}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "brand_text",
+      "label": "Brand text",
+      "default": "Wear what you believe. Kristo Eaglet is a faith-inspired apparel brand — every piece carries a message of identity, hope and elevation."
+    },
+    {
+      "type": "text",
+      "id": "menu_title",
+      "label": "Menu column title",
+      "default": "Shop"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "label": "Social column title",
+      "default": "Follow the journey"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom text",
+      "default": "All rights reserved."
+    }
+  ]
+}
+{% endschema %}

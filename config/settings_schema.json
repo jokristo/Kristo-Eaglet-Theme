@@ -1,0 +1,74 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Kristo Eaglet",
+    "theme_version": "1.0.0",
+    "theme_author": "Josue Kristo",
+    "theme_documentation_url": "https://kristoeaglet.com",
+    "theme_support_url": "https://kristoeaglet.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#FBF7F0"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#211D19"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (gold)",
+        "default": "#B98A2E"
+      },
+      {
+        "type": "color",
+        "id": "color_soft",
+        "label": "Soft panel",
+        "default": "#F1E8D9"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "select",
+        "id": "heading_style",
+        "label": "Heading style",
+        "options": [
+          { "value": "serif", "label": "Serif (elegant)" },
+          { "value": "sans", "label": "Sans-serif (modern)" }
+        ],
+        "default": "serif"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube URL"
+      }
+    ]
+  }
+]

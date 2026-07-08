@@ -1,0 +1,11 @@
+{%- comment -%}
+  Renders a price. Accepts: product (object)
+{%- endcomment -%}
+{%- if product.compare_at_price > product.price -%}
+  <span class="price price--sale">
+    <span class="price__regular">{{ product.compare_at_price | money }}</span>
+    <span class="price__sale">{{ product.price | money }}</span>
+  </span>
+{%- else -%}
+  <span class="price">{{ product.price | money }}</span>
+{%- endif -%}

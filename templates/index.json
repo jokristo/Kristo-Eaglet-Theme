@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "kicker": "Kristo Eaglet",
+        "title": "Wear what you believe.",
+        "text": "Faith-inspired apparel with a message of identity, hope and elevation.",
+        "button_label": "Shop the collection"
+      }
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "kicker": "The collection",
+        "title": "Designed with purpose",
+        "limit": 8
+      }
+    },
+    "story": {
+      "type": "image-with-text",
+      "settings": {
+        "kicker": "Our story",
+        "quote": "I am the child of God."
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "featured", "story", "newsletter"]
+}

@@ -1,0 +1,65 @@
+<section class="hero{% if section.settings.image != blank %} hero--has-image{% endif %}">
+  {%- if section.settings.image != blank -%}
+    <div class="hero__media">
+      <img src="{{ section.settings.image | image_url: width: 2000 }}" alt="{{ section.settings.image.alt | escape }}" loading="eager">
+    </div>
+  {%- endif -%}
+
+  <div class="hero__content">
+    {%- if section.settings.kicker != blank -%}
+      <p class="hero__kicker">{{ section.settings.kicker }}</p>
+    {%- endif -%}
+    <h1 class="hero__title">{{ section.settings.title }}</h1>
+    {%- if section.settings.text != blank -%}
+      <p class="hero__text">{{ section.settings.text }}</p>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ section.settings.button_link }}" class="btn">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker (small line above title)",
+      "default": "Kristo Eaglet"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Wear what you believe."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Faith-inspired apparel with a message of identity, hope and elevation."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    { "name": "Hero" }
+  ]
+}
+{% endschema %}

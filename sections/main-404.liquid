@@ -1,0 +1,15 @@
+<div class="utility-page">
+  <p class="section__kicker">404</p>
+  <h1>{{ 'general.404.title' | t }}</h1>
+  <p>{{ 'general.404.subtext' | t }}</p>
+  <p style="margin-top:2rem;">
+    <a href="{{ routes.all_products_collection_url }}" class="btn">{{ 'general.404.link' | t }}</a>
+  </p>
+</div>
+
+{% schema %}
+{
+  "name": "404",
+  "settings": []
+}
+{% endschema %}

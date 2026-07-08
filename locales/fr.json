@@ -1,0 +1,59 @@
+{
+  "general": {
+    "search": {
+      "search": "Rechercher",
+      "placeholder": "Rechercher dans la boutique",
+      "no_results": "Aucun résultat pour « {{ terms }} »",
+      "results_for": "Résultats pour « {{ terms }} »"
+    },
+    "404": {
+      "title": "Page introuvable",
+      "subtext": "La page que vous cherchez n'existe pas.",
+      "link": "Continuer vos achats"
+    },
+    "newsletter": {
+      "label": "E-mail",
+      "success": "Merci de rejoindre la famille.",
+      "button": "Rejoindre"
+    },
+    "cart": {
+      "title": "Votre panier",
+      "empty": "Votre panier est vide",
+      "continue": "Continuer vos achats",
+      "checkout": "Passer la commande",
+      "subtotal": "Sous-total",
+      "update": "Mettre à jour",
+      "remove": "Retirer",
+      "quantity": "Quantité",
+      "taxes_note": "Taxes et frais de livraison calculés à la caisse"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Ajouter au panier",
+      "added": "Ajouté ✓",
+      "sold_out": "Épuisé",
+      "unavailable": "Indisponible",
+      "price": "Prix",
+      "regular_price": "Prix habituel",
+      "sale_price": "Prix soldé",
+      "quantity": "Quantité",
+      "view_details": "Voir le produit"
+    }
+  },
+  "collections": {
+    "general": {
+      "view_all": "Tout voir",
+      "no_products": "Aucun produit dans cette collection",
+      "all_collections": "Collections"
+    }
+  },
+  "layout": {
+    "cart": {
+      "title": "Panier"
+    },
+    "navigation": {
+      "menu": "Menu"
+    }
+  }
+}

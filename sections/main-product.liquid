@@ -1,0 +1,81 @@
+<div class="page-width">
+  <div class="product">
+    <div class="product__gallery">
+      {%- for image in product.images -%}
+        <img
+          src="{{ image | image_url: width: 1100 }}"
+          alt="{{ image.alt | escape }}"
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+        >
+      {%- endfor -%}
+    </div>
+
+    <div class="product__info">
+      {%- if product.vendor != blank -%}
+        <p class="product__vendor">{{ product.vendor }}</p>
+      {%- endif -%}
+      <h1>{{ product.title }}</h1>
+      <p class="product__price" data-product-price>{{ product.selected_or_first_available_variant.price | money }}</p>
+
+      {% form 'product', product, class: 'product__form' %}
+        {%- unless product.has_only_default_variant -%}
+          <label for="Variants-{{ section.id }}">{{ product.options | join: ' / ' }}</label>
+          <select id="Variants-{{ section.id }}" name="id" data-variant-select>
+            {%- for variant in product.variants -%}
+              <option
+                value="{{ variant.id }}"
+                {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                {% unless variant.available %}disabled{% endunless %}
+              >
+                {{ variant.title }}{% unless variant.available %} — {{ 'products.product.sold_out' | t }}{% endunless %}
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- else -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {%- endunless -%}
+
+        <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+        <input
+          class="qty-input"
+          type="number"
+          id="Quantity-{{ section.id }}"
+          name="quantity"
+          min="1"
+          value="1"
+        >
+
+        <button
+          type="submit"
+          class="btn"
+          data-buy-button
+          data-text-add="{{ 'products.product.add_to_cart' | t }}"
+          data-text-added="{{ 'products.product.added' | t }}"
+          data-text-sold-out="{{ 'products.product.sold_out' | t }}"
+          {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+        >
+          {%- if product.selected_or_first_available_variant.available -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- else -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- endif -%}
+        </button>
+      {% endform %}
+
+      <div class="product__description rte">
+        {{ product.description }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" data-product-json>
+  {{ product | json }}
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": []
+}
+{% endschema %}
