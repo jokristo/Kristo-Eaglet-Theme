@@ -29,6 +29,7 @@
         --color-bg: {{ settings.color_background }};
         --color-text: {{ settings.color_text }};
         --color-accent: {{ settings.color_accent }};
+        --color-accent-text: {{ settings.color_accent_text | default: '#846221' }};
         --color-soft: {{ settings.color_soft }};
         --font-heading: {% if settings.heading_style == 'serif' %}'Cormorant Garamond', Georgia, serif{% else %}'Jost', sans-serif{% endif %};
         --font-body: 'Jost', -apple-system, sans-serif;
@@ -42,6 +43,7 @@
   <body class="template-{{ template.name | handle }}" data-currency="{{ cart.currency.iso_code }}">
     <a class="skip-link" href="#MainContent">Skip to content</a>
 
+    {% section 'announcement-bar' %}
     {% section 'header' %}
 
     <main id="MainContent" role="main">

@@ -1,0 +1,35 @@
+{%- if section.settings.message != blank -%}
+  <div class="announcement">
+    <div class="page-width announcement__inner">
+      {%- if section.settings.link != blank -%}
+        <a href="{{ section.settings.link }}">{{ section.settings.message }}</a>
+      {%- else -%}
+        <span>{{ section.settings.message }}</span>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Bandeau d'annonce",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "N'annoncez une offre de livraison que si le tarif correspondant existe dans Réglages → Livraison. Sinon le client découvre le contraire au paiement."
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message",
+      "default": "Imprimé sur commande — expédié sous 3-5 jours ouvrés"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Lien (facultatif)"
+    }
+  ],
+  "presets": [{ "name": "Bandeau d'annonce" }]
+}
+{% endschema %}
