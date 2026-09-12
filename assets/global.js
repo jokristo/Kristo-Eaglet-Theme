@@ -177,10 +177,21 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       if (buyBtn) buyBtn.disabled = true;
 
+      // On n'envoie que id + quantity : les boutons radio des options
+      // servent uniquement à l'interface et n'ont rien à faire dans le panier.
+      var payload = new FormData();
+      var idField = productForm.querySelector('[name="id"]');
+      var qtyField = productForm.querySelector('[name="quantity"]');
+      payload.append('id', idField ? idField.value : '');
+      payload.append('quantity', qtyField ? qtyField.value : '1');
+      productForm.querySelectorAll('[name^="properties["]').forEach(function (field) {
+        payload.append(field.name, field.value);
+      });
+
       fetch('/cart/add.js', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
-        body: new FormData(productForm)
+        body: payload
       })
         .then(function (res) {
           if (!res.ok) throw new Error('add-to-cart failed');
@@ -205,6 +216,10 @@ document.addEventListener('DOMContentLoaded', function () {
           // Fallback: classic submit if the Ajax call fails
           // (programmatic .submit() does not re-trigger this listener)
           if (buyBtn) buyBtn.disabled = false;
+          // On neutralise les radios d'options pour qu'ils ne partent pas au panier
+          productForm.querySelectorAll('[data-option-input]').forEach(function (input) {
+            input.disabled = true;
+          });
           productForm.submit();
         });
     });
