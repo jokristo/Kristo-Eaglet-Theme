@@ -1,11 +1,16 @@
 {%- comment -%}
   Renders a price. Accepts: product (object)
+  Affiche « À partir de » quand les variantes n'ont pas toutes le même prix,
+  pour que la carte et la page produit ne se contredisent jamais.
 {%- endcomment -%}
 {%- if product.compare_at_price > product.price -%}
   <span class="price price--sale">
     <span class="price__regular">{{ product.compare_at_price | money }}</span>
     <span class="price__sale">{{ product.price | money }}</span>
   </span>
+{%- elsif product.price_varies -%}
+  {%- assign price_from = product.price | money -%}
+  <span class="price">{{ 'products.product.from_price' | t: price: price_from }}</span>
 {%- else -%}
   <span class="price">{{ product.price | money }}</span>
 {%- endif -%}

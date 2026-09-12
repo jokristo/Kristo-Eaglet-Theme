@@ -33,6 +33,7 @@ Thème Liquid créé à zéro (Online Store 2.0). Direction visuelle : chaleureu
 
 ## Inclus
 
+new branch created
 - Version française (`locales/fr.json`) — active le français dans Réglages → Langues de l'admin Shopify
 - Ajax cart — ajout au panier sans rechargement, compteur du header mis à jour en direct, fallback classique si le JS échoue
 
