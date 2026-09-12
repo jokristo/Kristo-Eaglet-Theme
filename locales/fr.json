@@ -1,5 +1,6 @@
 {
   "general": {
+    "close": "Fermer",
     "search": {
       "search": "Rechercher",
       "placeholder": "Rechercher dans la boutique",
@@ -38,7 +39,11 @@
       "regular_price": "Prix habituel",
       "sale_price": "Prix soldé",
       "quantity": "Quantité",
-      "view_details": "Voir le produit"
+      "view_details": "Voir le produit",
+      "from_price": "À partir de {{ price }}",
+      "size_guide": "Guide des tailles",
+      "view_image": "Voir l'image",
+      "more_images": "{{ count }} photos au total"
     }
   },
   "collections": {
