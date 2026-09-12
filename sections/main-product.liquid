@@ -132,6 +132,20 @@
         <p class="product__reassurance">{{ section.settings.shipping_note }}</p>
       {%- endif -%}
 
+      {%- if section.settings.show_trust -%}
+        <ul class="product__trust">
+          <li>{{ 'products.product.trust_secure' | t }}</li>
+          <li>{{ 'products.product.trust_printed' | t }}</li>
+          <li>
+            <a href="/pages/shipping-delivery">{{ 'products.product.trust_shipping_link' | t }}</a>
+            &middot;
+            <a href="/pages/returns-refunds">{{ 'products.product.trust_returns_link' | t }}</a>
+            &middot;
+            <a href="/pages/faq">{{ 'products.product.trust_faq_link' | t }}</a>
+          </li>
+        </ul>
+      {%- endif -%}
+
       <div class="product__description rte">
         {{ product.description }}
       </div>
@@ -184,7 +198,14 @@
       "type": "textarea",
       "id": "shipping_note",
       "label": "Note livraison / retours",
-      "default": "Imprimé sur commande — expédié sous 3-5 jours ouvrés, livré en 7-12 jours. Retours acceptés sous 30 jours."
+      "info": "N'annoncez que ce que vous tenez réellement. Printify ne couvre que les défauts et erreurs d'impression.",
+      "default": "Imprimé sur commande — expédié sous 3-5 jours ouvrés, livré en 7-12 jours. Article défectueux ou mal imprimé : réimprimé ou remboursé."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust",
+      "label": "Afficher les repères de confiance",
+      "default": true
     }
   ]
 }

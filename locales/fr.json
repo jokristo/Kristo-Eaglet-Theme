@@ -43,7 +43,12 @@
       "from_price": "À partir de {{ price }}",
       "size_guide": "Guide des tailles",
       "view_image": "Voir l'image",
-      "more_images": "{{ count }} photos au total"
+      "more_images": "{{ count }} photos au total",
+      "trust_secure": "Paiement sécurisé — carte, PayPal, Apple Pay",
+      "trust_printed": "Imprimé et expédié par notre réseau partenaire",
+      "trust_shipping_link": "Livraison et délais",
+      "trust_returns_link": "Retours",
+      "trust_faq_link": "Questions fréquentes"
     }
   },
   "collections": {

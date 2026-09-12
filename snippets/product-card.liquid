@@ -1,20 +1,56 @@
 {%- comment -%}
   Renders a product card. Accepts: product (object)
 {%- endcomment -%}
+{%- liquid
+  assign second_image = product.images[1]
+  assign color_option = null
+  for opt in product.options_with_values
+    assign opt_handle = opt.name | handle
+    if opt_handle contains 'color' or opt_handle contains 'colour'
+      assign color_option = opt
+      break
+    endif
+  endfor
+-%}
 <a href="{{ product.url }}" class="product-card">
-  <div class="product-card__media">
+  <div class="product-card__media{% if second_image %} product-card__media--has-second{% endif %}">
     {%- if product.featured_image != blank -%}
       <img
+        class="product-card__image"
         src="{{ product.featured_image | image_url: width: 600 }}"
         alt="{{ product.featured_image.alt | escape }}"
         loading="lazy"
         width="600"
         height="750"
       >
+      {%- if second_image -%}
+        <img
+          class="product-card__image product-card__image--second"
+          src="{{ second_image | image_url: width: 600 }}"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          width="600"
+          height="750"
+        >
+      {%- endif -%}
     {%- endif -%}
   </div>
+
   <p class="product-card__title">{{ product.title }}</p>
   <p class="product-card__price">{% render 'price', product: product %}</p>
+
+  {%- if color_option and color_option.values.size > 1 -%}
+    <span class="product-card__colors">
+      {%- for value in color_option.values limit: 5 -%}
+        <span class="product-card__color" data-swatch-color="{{ value | handle }}" title="{{ value | escape }}"></span>
+      {%- endfor -%}
+      {%- if color_option.values.size > 5 -%}
+        <span class="product-card__colors-more">+{{ color_option.values.size | minus: 5 }}</span>
+      {%- endif -%}
+    </span>
+  {%- endif -%}
+
   {%- unless product.available -%}
     <span class="badge--sold-out">{{ 'products.product.sold_out' | t }}</span>
   {%- endunless -%}

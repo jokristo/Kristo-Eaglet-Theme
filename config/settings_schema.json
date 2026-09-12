@@ -26,7 +26,15 @@
         "type": "color",
         "id": "color_accent",
         "label": "Accent (gold)",
+        "info": "Or de marque. Réservé aux fonds sombres et aux éléments décoratifs.",
         "default": "#B98A2E"
+      },
+      {
+        "type": "color",
+        "id": "color_accent_text",
+        "label": "Accent — texte sur fond clair",
+        "info": "Même teinte, en plus profond. L'or de marque ne donne que 2,9:1 sur le fond crème, sous le seuil d'accessibilité AA (4,5:1). Cette version atteint 5,2:1.",
+        "default": "#846221"
       },
       {
         "type": "color",
