@@ -561,9 +561,36 @@ img { max-width: 100%; height: auto; display: block; }
   cursor: pointer;
   color: var(--color-text);
 }
-.size-modal__body table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
-.size-modal__body th, .size-modal__body td { padding: 0.55rem 0.5rem; border-bottom: 1px solid rgba(0,0,0,0.1); text-align: left; }
+/* Les tableaux de tailles dépassent la largeur d'un téléphone dès 6 tailles :
+   on les rend défilables horizontalement, colonne de libellés figée. */
+.size-modal__body table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  max-width: 100%;
+}
+.size-modal__body th, .size-modal__body td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  text-align: left;
+}
 .size-modal__body th { font-weight: 500; letter-spacing: 0.05em; }
+.size-modal__body thead th { text-align: center; }
+.size-modal__body tbody td { text-align: center; }
+.size-modal__body tbody th:first-child,
+.size-modal__body thead th:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--color-bg);
+  text-align: left;
+  box-shadow: 1px 0 0 rgba(0,0,0,0.08);
+}
+.size-modal__body p { margin: 1.2rem 0 0.2rem; }
+.size-modal__body p:first-child { margin-top: 0; }
 
 .visually-hidden {
   position: absolute !important;
