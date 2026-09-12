@@ -72,15 +72,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
       var label = document.querySelector('label[for="' + input.id + '"]');
       var usable = !!match && match.available;
-      input.disabled = !match;
+      // On ne désactive JAMAIS l'input : la valeur reste cliquable et on
+      // rebascule l'autre option automatiquement (voir updateVariant).
       if (label) label.classList.toggle('is-unavailable', !usable);
     });
   }
 
-  function updateVariant() {
+  // Sélectionne la valeur `value` sur l'option en position `position` (1-indexée)
+  function checkOption(position, value) {
+    var inputs = document.querySelectorAll('[data-option-input][data-option-position="' + position + '"]');
+    inputs.forEach(function (input) {
+      if (input.value === value) input.checked = true;
+    });
+  }
+
+  function updateVariant(event) {
     if (!product) return;
     var values = selectedOptions();
     var variant = findVariant(values);
+
+    // Combinaison inexistante : plutôt que de bloquer le client, on garde
+    // la valeur qu'il vient de choisir et on ajuste l'autre option.
+    if (!variant && event && event.target && event.target.dataset.optionPosition) {
+      var pos = parseInt(event.target.dataset.optionPosition, 10) - 1;
+      var picked = event.target.value;
+      var fallback =
+        product.variants.find(function (v) { return v.available && v.options[pos] === picked; }) ||
+        product.variants.find(function (v) { return v.options[pos] === picked; });
+
+      if (fallback) {
+        fallback.options.forEach(function (optValue, i) { checkOption(i + 1, optValue); });
+        values = selectedOptions();
+        variant = findVariant(values);
+      }
+    }
 
     // Libellé de l'option affiché à côté du nom
     values.forEach(function (val, i) {
